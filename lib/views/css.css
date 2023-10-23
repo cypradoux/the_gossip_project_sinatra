@@ -1,0 +1,8 @@
+a{
+    color: cadetblue;
+    background-color: grey;
+}
+
+a:hover{
+    background-color: darkslategrey;
+}

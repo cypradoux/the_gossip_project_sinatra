@@ -1,21 +1,43 @@
 <html>
     <head>
         <title>The Gossip Project</title>
+        <style>
+        h1{
+            text-align: center;
+
+        }
+        a{
+            color: cadetblue;
+            text-decoration: none;
+            background-color: white;
+            border-radius: 20px;
+            font-size: 30px;
+            padding-left: 20px;
+            border-color: #C0C1C6
+        }
+
+        a:hover{
+            background-color: #C0C1C6;
+        }
+        div.top{
+            text-align: center;
+        }
+        </style>
     </head>
     <body>
         <h1>Mon super site de gossip, depuis le dossier view</h1>
-        <a href="/gossips/new">Crée un potin stp</a>
+        <div id="créer">
+        <a href="/gossips/new">Créer un potin stp</a>
+        </div>
         <br/>
-        <form action="/gossips/:id" method="GET">
-            Donne moi un numéro de potin : <input type='text' name='id'/>
-            <a href="/gossips/:id"> Go ! <a/>
-        </form>
-
-        <% gossips.each do |gossip| %>
-            <p>
+        <% gossips.each_with_index do |gossip, index| %>
+            <a href="/gossips/<%= index + 1 %>"
+            <p> L'auteur du potin : 
                 <%= gossip.author %><br/>
-                <%= gossip.content %>
+                Le potin en question : <%= gossip.content %>
             </p>
-        <% end %>    
+            <a/>
+        <% end %> 
+
     </body>
 </html>

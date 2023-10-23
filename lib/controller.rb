@@ -14,8 +14,8 @@ class ApplicationController < Sinatra::Base
     end
 
     get "/gossips/:id" do
-        id = params[:id]
-        erb :one_gossip, locals: { id: id}
-        puts "Voici le numéro du potin que tu veux : #{params["id"]}"
+    index = params[:id].to_i
+    @element = Gossip.all[index - 1]
+        erb :show
     end
 end
