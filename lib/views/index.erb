@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>The Gossip Project</title>
+    </head>
+    <body>
+        <h1>Mon super site de gossip, depuis le dossier view</h1>
+        <a href="/gossips/new">Crée un potin stp</a>
+        <br/>
+        <form action="/gossips/:id" method="GET">
+            Donne moi un numéro de potin : <input type='text' name='id'/>
+            <a href="/gossips/:id"> Go ! <a/>
+        </form>
+
+        <% gossips.each do |gossip| %>
+            <p>
+                <%= gossip.author %><br/>
+                <%= gossip.content %>
+            </p>
+        <% end %>    
+    </body>
+</html>
